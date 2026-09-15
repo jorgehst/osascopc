@@ -6,7 +6,6 @@
     <meta name="description" content="Marketplace local de produtos e serviços para PC em Osasco e região.">
     <title>Osasco PC Market</title>
     <style>
-        /* CONFIGURAÇÕES DE CORES E IDENTIDADE VISUAL ESCURA */
         :root {
             --bg: #07111f;
             --panel: #0e1c30;
@@ -43,7 +42,6 @@
             padding: 0 22px;
         }
 
-        /* CABEÇALHO E MENU */
         .top {
             border-bottom: 1px solid var(--line);
             background: rgba(7, 17, 31, 0.91);
@@ -82,7 +80,6 @@
             color: #fff;
         }
 
-        /* BOTÕES */
         .btn {
             border: 0;
             border-radius: 10px;
@@ -101,7 +98,6 @@
             border: 1px solid var(--line);
         }
 
-        /* SEÇÃO HERO (BANNER PRINCIPAL) */
         .hero {
             padding: 70px 0 35px;
             display: grid;
@@ -136,7 +132,6 @@
             max-width: 640px;
         }
 
-        /* BARRA DE BUSCA */
         .search {
             display: flex;
             gap: 10px;
@@ -179,7 +174,6 @@
             color: #fff;
         }
 
-        /* CARD DE INFORMAÇÕES DO HERO */
         .hero-card {
             background: linear-gradient(145deg, #123656, #0d1e35);
             border: 1px solid #27527b;
@@ -207,7 +201,6 @@
             color: var(--muted);
         }
 
-        /* GRIDS DE ANÚNCIOS E CARDS */
         .section {
             padding: 34px 0;
         }
@@ -299,7 +292,6 @@
             margin-bottom: 10px;
         }
 
-        /* PLANOS DE ANÚNCIOS */
         .plans {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -342,7 +334,6 @@
             width: 100%;
         }
 
-        /* ADSENSE E CTA */
         .ad {
             border: 1px dashed #436078;
             border-radius: 14px;
@@ -368,7 +359,6 @@
             margin: 0 0 8px;
         }
 
-        /* RODAPÉ */
         .footer {
             border-top: 1px solid var(--line);
             margin-top: 42px;
@@ -379,7 +369,6 @@
             justify-content: space-between;
         }
 
-        /* EXPERIÊNCIA MOBILE / RESPONSIVIDADE */
         @media(max-width: 850px) {
             .hero { grid-template-columns: 1fr; }
             .grid { grid-template-columns: repeat(2, 1fr); }
@@ -393,3 +382,22 @@
             .search select { max-width: none; border: 0; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 5px; }
             .cta { display: block; }
             .cta .btn { margin-top: 16px; width: 100%; }
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 100;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .dialog {
+            max-width: 510px;
