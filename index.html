@@ -6,7 +6,7 @@
     <title>Osasco PC Market - Informática, Games e Tecnologia</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos adicionais para o Modal de Anúncio e Caixa LGPD */
+        /* Estilos específicos para o Modal de Anúncio e Caixa LGPD sem quebrar o CSS original */
         .modal {
             display: none; 
             position: fixed; 
@@ -27,6 +27,8 @@
             max-width: 450px; 
             position: relative;
             color: #333;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .close-btn {
             position: absolute; 
@@ -35,8 +37,10 @@
             font-size: 24px; 
             cursor: pointer; 
             color: #666;
+            font-weight: bold;
         }
-        .modal-content h2 { margin-top: 0; color: #1a1a2e; }
+        .modal-content h2 { margin-top: 0; color: #1a1a2e; font-size: 22px; }
+        .modal-content p { color: #555; font-size: 14px; margin-bottom: 15px; }
         .modal-content input, .modal-content textarea {
             width: 100%; 
             padding: 10px; 
@@ -44,6 +48,7 @@
             border: 1px solid #ccc; 
             border-radius: 4px; 
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
         .modal-content textarea { height: 100px; resize: none; }
         .lgpd-box {
@@ -53,9 +58,9 @@
             margin: 12px 0; 
             font-size: 13px; 
             color: #555;
-            text-align: left;
+            line-height: 1.4;
         }
-        .lgpd-box input { width: auto; margin-top: 3px; }
+        .lgpd-box input { width: auto !important; margin-top: 3px; cursor: pointer; }
         .modal-content button {
             width: 100%; 
             padding: 12px; 
@@ -66,6 +71,7 @@
             font-weight: bold; 
             cursor: pointer;
             font-size: 16px;
+            transition: background 0.2s;
         }
         .modal-content button:hover { background-color: #d23d56; }
     </style>
@@ -76,180 +82,194 @@
     <header>
         <div class="logo">Osasco PC Market</div>
         <nav>
-            <a href="#produtos">Produtos</a>
+            <a href="#produtos">Osasco PC</a>
+            <a href="#servicos">Anúncios</a>
             <a href="#servicos">Serviços</a>
             <a href="#planos">Anuncie</a>
-            <button class="btn-anunciar" onclick="abrirModal()">Publicar anúncio</button>
+            <button class="btn-anunciar" onclick="abrirModal()" style="cursor:pointer;">Publicar anúncio</button>
         </nav>
     </header>
 
-    <!-- Banner Principal (Hero) -->
+    <!-- Banner Principal -->
     <section class="hero">
-        <p class="tagline">Tecnologia local • Osasco e região</p>
+        <p>Tecnologia local • Osasco e região</p>
         <h1>Seu próximo PC começa aqui.</h1>
         <p>Encontre peças, computadores, assistência técnica e profissionais confiáveis perto de você.</p>
         
-        <div class="search-container">
-            <button class="filter-btn active">Todas as categorias</button>
-            <button class="filter-btn">Produtos</button>
-            <button class="filter-btn">Serviços</button>
-            <div class="search-box">
-                <input type="text" placeholder="O que você está procurando em Osasco?">
-                <button class="main-search-btn">Buscar</button>
-            </div>
+        <!-- Filtros e Busca Originais -->
+        <div>
+            <button>Todas as categorias</button>
+            <button>Produtos</button>
+            <button>Serviços</button>
+        </div>
+        <div>
+            <input type="text" placeholder="Buscar">
         </div>
     </section>
 
-    <!-- Estatísticas do Portal -->
-    <section class="stats-bar">
-        <div class="stat-item">
-            <span class="stat-number">Marketplace local</span>
-            <span class="stat-label">Osasco e cidades vizinhas</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">Anunciantes ativos</span>
-            <span class="stat-label">Em pleno crescimento</span>
-        </div>
+    <!-- Seção informativa original -->
+    <section>
+        <h2>Marketplace local</h2>
+        <p>+ Osasco</p>
+        <p>Uma vitrine digital para conectar compradores e anunciantes de informática, games e tecnologia.</p>
+        <p>Anunciantes ativos <strong>em crescimento</strong></p>
+        <p>Região atendida <strong>Osasco + vizinhas</strong></p>
     </section>
 
-    <!-- Bloco para o Google AdSense -->
-    <div class="ads-container">
-        <div class="ads-placeholder">
-            <p>Espaço reservado para Google AdSense — inserir o código após aprovação da conta e configuração de consentimento.</p>
-        </div>
+    <!-- Espaço para Google AdSense -->
+    <div class="ads-placeholder">
+        <p>Espaço reservado para Google AdSense — inserir o código após aprovação da conta e configuração de consentimento.</p>
     </div>
 
-    <!-- Seção de Anúncios em Destaque -->
-    <main class="content-wrapper">
-        <section id="produtos" class="section-container">
-            <div class="section-header">
-                <h2>Anúncios em destaque</h2>
-                <p>Ofertas publicadas por vendedores da região</p>
-                <a href="#" class="see-all">Ver todos</a>
-            </div>
-
+    <!-- Seção de Anúncios -->
+    <main>
+        <section id="produtos">
+            <h2>Anúncios em destaque</h2>
+            <p>Ofertas publicadas por vendedores da região</p>
+            <a href="#">Ver todos</a>
+            
             <div class="grid-anuncios">
                 <!-- Card 1 -->
                 <div class="card">
-                    <div class="card-icon">🖥</div>
-                    <span class="badge badge-produto">Produto</span>
+                    <span>🖥</span>
+                    <p>Produto</p>
                     <h3>PC Gamer Ryzen 5 + RTX</h3>
                     <p class="preco">R$ 3.899</p>
-                    <p class="local">Centro, Osasco • hoje</p>
+                    <p>Centro, Osasco • hoje</p>
                 </div>
                 <!-- Card 2 -->
                 <div class="card">
-                    <div class="card-icon">🎮</div>
-                    <span class="badge badge-produto">Produto</span>
+                    <span>🎮</span>
+                    <p>Produto</p>
                     <h3>Placa de vídeo RTX 4060</h3>
                     <p class="preco">R$ 1.749</p>
-                    <p class="local">Jaguaribe, Osasco • ontem</p>
+                    <p>Jaguaribe, Osasco • ontem</p>
                 </div>
                 <!-- Card 3 -->
                 <div class="card">
-                    <div class="card-icon">🛠</div>
-                    <span class="badge badge-servico">Serviço</span>
+                    <span>🛠</span>
+                    <p>Serviço</p>
                     <h3>Limpeza e manutenção de PC</h3>
                     <p class="preco">A partir de R$ 80</p>
-                    <p class="local">Km 18, Osasco • hoje</p>
+                    <p>Km 18, Osasco • hoje</p>
                 </div>
                 <!-- Card 4 -->
                 <div class="card">
-                    <div class="card-icon">💻</div>
-                    <span class="badge badge-produto">Produto</span>
+                    <span>💻</span>
+                    <p>Produto</p>
                     <h3>Notebook para estudo e trabalho</h3>
                     <p class="preco">R$ 1.299</p>
-                    <p class="local">Quitaúna, Osasco • 2 dias</p>
+                    <p>Quitaúna, Osasco • 2 dias</p>
                 </div>
             </div>
         </section>
 
         <!-- Seção de Serviços -->
-        <section id="servicos" class="section-container bg-alt">
-            <div class="section-header">
-                <h2>Serviços confiáveis</h2>
-                <p>Profissionais que atendem perto de você</p>
+        <section id="servicos">
+            <h2>Serviços confiáveis</h2>
+            <p>Profissionais que atendem perto de você</p>
+            
+            <div>
+                <span>🔧</span>
+                <h3>Assistência técnica</h3>
+                <p>Formatação, diagnóstico, upgrade e montagem.</p>
+                <button>Encontrar profissional</button>
             </div>
-            <div class="grid-servicos">
-                <div class="service-box">
-                    <span class="box-icon">🔧</span>
-                    <h3>Assistência técnica</h3>
-                    <p>Formatação, diagnóstico, upgrade e montagem.</p>
-                    <button class="secondary-btn">Encontrar profissional</button>
-                </div>
-                <div class="service-box">
-                    <span class="box-icon">⚡</span>
-                    <h3>Montagem de PC</h3>
-                    <p>Monte sua configuração com ajuda especializada.</p>
-                    <button class="secondary-btn">Ver especialistas</button>
-                </div>
-                <div class="service-box">
-                    <span class="box-icon">🏢</span>
-                    <h3>Empresas locais</h3>
-                    <p>Lojas e prestadores com presença na região.</p>
-                    <button class="secondary-btn">Explorar empresas</button>
-                </div>
+            <div>
+                <span>⚡</span>
+                <h3>Montagem de PC</h3>
+                <p>Monte sua configuração com ajuda especializada.</p>
+                <button>Ver especialistas</button>
+            </div>
+            <div>
+                <span>🏢</span>
+                <h3>Empresas locais</h3>
+                <p>Lojas e prestadores com presença na região.</p>
+                <button>Explorar empresas</button>
             </div>
         </section>
 
-        <!-- Seção de Planos de Monetização -->
-        <section id="planos" class="section-container">
-            <div class="section-header">
-                <h2>Escolha seu plano de anunciante</h2>
-                <p>Comece simples e alcance compradores da região</p>
+        <!-- Seção de Planos -->
+        <section id="planos">
+            <h2>Escolha seu plano de anunciante</h2>
+            <p>Comece simples e alcance compradores da região</p>
+            
+            <div>
+                <h3>Grátis</h3>
+                <p>R$ 0</p>
+                <ul>
+                    <li>1 anúncio ativo</li>
+                    <li>Fotos e descrição</li>
+                    <li>Contato pelo WhatsApp</li>
+                </ul>
+                <button onclick="abrirModal()">Começar</button>
             </div>
-            <div class="grid-planos">
-                <!-- Plano Grátis -->
-                <div class="plano-card">
-                    <h3>Grátis</h3>
-                    <p class="plano-preco">R$ 0</p>
-                    <ul>
-                        <li>1 anúncio ativo</li>
-                        <li>Fotos e descrição</li>
-                        <li>Contato pelo WhatsApp</li>
-                    </ul>
-                    <button class="plano-btn" onclick="abrirModal()">Começar</button>
-                </div>
-                <!-- Plano Profissional -->
-                <div class="plano-card destaque">
-                    <h3>Profissional</h3>
-                    <p class="plano-preco">R$ 29,90<span>/mês</span></p>
-                    <ul>
-                        <li>Até 10 anúncios</li>
-                        <li>Destaque na busca</li>
-                        <li>Perfil comercial</li>
-                    </ul>
-                    <button class="plano-btn btn-destaque" onclick="abrirModal()">Quero anunciar</button>
-                </div>
-                <!-- Plano Loja -->
-                <div class="plano-card">
-                    <h3>Loja</h3>
-                    <p class="plano-preco">R$ 79,90<span>/mês</span></p>
-                    <ul>
-                        <li>Anúncios ilimitados</li>
-                        <li>Vitrine da loja</li>
-                        <li>Relatórios de visualização</li>
-                    </ul>
-                    <button class="plano-btn" onclick="abrirModal()">Falar com vendas</button>
-                </div>
+            <div>
+                <h3>Profissional</h3>
+                <p>R$ 29,90/mês</p>
+                <ul>
+                    <li>Até 10 anúncios</li>
+                    <li>Destaque na busca</li>
+                    <li>Perfil comercial</li>
+                </ul>
+                <button onclick="abrirModal()">Quero anunciar</button>
+            </div>
+            <div>
+                <h3>Loja</h3>
+                <p>R$ 79,90/mês</p>
+                <ul>
+                    <li>Anúncios ilimitados</li>
+                    <li>Vitrine da loja</li>
+                    <li>Relatórios de visualização</li>
+                    <li>Suporte prioritário</li>
+                </ul>
+                <button onclick="abrirModal()">Falar com vendas</button>
             </div>
         </section>
     </main>
 
-    <!-- Seção de Chamada para Ação -->
-    <section class="cta-section">
+    <!-- Chamada para Ação Inferior -->
+    <section>
         <h2>Tem um produto ou serviço?</h2>
         <p>Publique e encontre clientes em Osasco.</p>
-        <button class="cta-btn" onclick="abrirModal()">Publicar agora</button>
+        <button onclick="abrirModal()">Publicar agora</button>
     </section>
 
-    <!-- Rodapé Adaptado à LGPD -->
+    <!-- Rodapé -->
     <footer>
-        <p>&copy; 2026 OsascoPC. Todos os direitos reservados.</p>
-        <p>
-            <a href="privacidade.html" style="color: #999; text-decoration: none; font-size: 14px; margin: 0 10px;">Política de Privacidade e LGPD</a> | 
-            <a href="mailto:pcosasco@yahoo.com" style="color: #999; text-decoration: none; font-size: 14px; margin: 0 10px;">Contato</a>
+        <p>&copy; 2026 OsascoPC. Projeto demonstrativo. 
+            <a href="privacidade.html" style="color: inherit; margin-left: 10px;">Privacidade</a> • 
+            <a href="privacidade.html" style="color: inherit;">Termos</a> • 
+            <a href="mailto:pcosasco@yahoo.com" style="color: inherit;">Contato</a>
         </p>
     </footer>
 
     <!-- JANELA MODAL DO FORMULÁRIO (BLINDADO COM SUPABASE) -->
+    <div id="modalAnuncio" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <h2>Publicar anúncio</h2>
+            <p>Deixe seus dados e entraremos em contato para ativar seu anúncio.</p>
+            
+            <form id="formAnuncio">
+                <input type="text" id="nome" placeholder="Nome ou empresa" required>
+                <input type="text" id="whatsapp" placeholder="WhatsApp" required>
+                <textarea id="descricao" placeholder="O que você anuncia?" required></textarea>
+                
+                <div class="lgpd-box">
+                    <input type="checkbox" id="consentimento" required>
+                    <label for="consentimento">Aceito os termos da LGPD para armazenamento seguro e publicação dos meus dados de contato.</label>
+                </div>
+                
+                <button type="submit">Enviar interesse</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts de Conexão com o Supabase -->
+    <script src="https://jsdelivr.net"></script>
+    <script>
+        function abrirModal() {
+            document.getElementById('modalAnuncio').style.display = 'flex';
+        }
+        function fecharModal() {
